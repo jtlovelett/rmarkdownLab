@@ -1,0 +1,64 @@
+---
+title: "R Markdown Demo"
+author: "Jarrett Lovelett"
+date: "12/5/2018"
+output: pdf_document
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+# Begin Lab
+
+Let's start by installing a couple packages (`styler` and `prettycode`) and (optionally) [github desktop](https://desktop.github.com/), which can be used for collaboration and version control. 
+
+```{r}
+#install.packages('styler')
+#install.packages('prettycode')
+library(styler)
+library(prettycode)
+```
+
+# Style 
+
+Code style is important for readability. One good way to learn is by playing around with the `styler` package. 
+
+```{r non-pretty}
+read_file('crappyCode.R')
+```
+
+Let's fix it up!   
+
+```{r pretty!}
+read_file('crappyCode.R') %>%
+  style_text()
+```
+    
+Or... :
+```{r whole file}
+style_file('crappyCode.R')
+```
+
